@@ -9,8 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vue-hero-icons/outline": "^1.7.2",
-    "@vue-hero-icons/solid": "^1.7.2",
+    "@heroicons/vue": "^2.0.18",
     "pinia": "^2.1.7",
     "vue": "^3.4.15"
   },

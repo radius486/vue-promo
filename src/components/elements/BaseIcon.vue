@@ -8,7 +8,10 @@
 <script setup>
 import { computed } from 'vue'
 
+import VueIcon from '../icons/VueIcon.vue'
+
 const icons = {
+  VueIcon,
 }
 
 const props = defineProps ({

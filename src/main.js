@@ -8,4 +8,8 @@ const app = createApp(App)
 
 app.use(createPinia())
 
+app.directive('focus', {
+  mounted: (el) => el.focus()
+})
+
 app.mount('#app')
