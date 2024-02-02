@@ -14,6 +14,20 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
+
 import PromoBlock from './PromoBlock.vue'
 import CallToAction from '../elements/CallToAction.vue'
+
+import { useDataStore } from '../../stores/data'
+
+const dataStore = useDataStore()
+
+const {
+  setPromoCards,
+} = dataStore
+
+onMounted(() => {
+  setPromoCards()
+})
 </script>

@@ -33,11 +33,21 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { storeToRefs } from 'pinia'
 
 import PromoCard from '../elements/PromoCard.vue'
 import PromoOverlay from '../elements/PromoOverlay.vue'
 
-const title = 'Lorem Ipsum'
+import { useDataStore } from '../../stores/data'
+
+const dataStore = useDataStore()
+
+const {
+  title,
+  getCards
+} = storeToRefs(dataStore)
+
+const promoCards = ref(getCards)
 
 const isOverlayVisible = ref(false)
 
@@ -50,78 +60,6 @@ const currentSlide = reactive({
   backgroundClass: '',
   listIconClass: '',
 })
-
-const promoCards = [
-  {
-    title: 'Card title',
-    image: '/img/hummingbird.jpg',
-    shape: '/img/hummingbird.jpg',
-    buttonText: 'Click me',
-    slide: {
-      title: 'Title',
-      image: '/img/humming-bird.png',
-      buttonText: "Don't click me",
-      list: [
-        'First item',
-        'Second item',
-        'Thitd item',
-      ],
-      backgroundClass: 'bg-pink',
-    },
-  },
-  {
-    title: 'Card title',
-    image: '/img/hummingbird.jpg',
-    shape: '/img/hummingbird.jpg',
-    buttonText: 'Click me',
-    slide: {
-      title: 'Title',
-      image: '/img/humming-bird.png',
-      buttonText: "Don't click me",
-      list: [
-        'First item',
-        'Second item',
-        'Thitd item',
-      ],
-      backgroundClass: 'bg-yellow',
-    },
-  },
-  {
-    title: 'Card title',
-    image: '/img/hummingbird.jpg',
-    shape: '/img/hummingbird.jpg',
-    buttonText: 'Click me',
-    slide: {
-      title: 'Title',
-      image: '/img/humming-bird.png',
-      buttonText: "Don't click me",
-      list: [
-        'First item',
-        'Second item',
-        'Thitd item',
-      ],
-      backgroundClass: 'bg-dark-purple',
-      listIconClass: 'text-turquoise',
-    },
-  },
-  {
-    title: 'Card title',
-    image: '/img/hummingbird.jpg',
-    shape: '/img/hummingbird.jpg',
-    buttonText: 'Click me',
-    slide: {
-      title: 'Title',
-      image: '/img/humming-bird.png',
-      buttonText: "Don't click me",
-      list: [
-        'First item',
-        'Second item',
-        'Thitd item',
-      ],
-      backgroundClass: 'bg-yellow',
-    },
-  },
-]
 
 function showOverlay(slide) {
   Object.assign(currentSlide, slide)
